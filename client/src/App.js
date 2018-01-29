@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
+import Dashboard from './Dashboard.js';
 import Flash from './layout/Flash.js';
 import Footer from './layout/Footer.js';
 import Home from './Home.js';
@@ -85,6 +86,7 @@ class App extends Component {
             </div>
           </div>
         </Router>
+        <Dashboard />
         <Footer />
       </div>
     );
