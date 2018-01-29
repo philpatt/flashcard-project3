@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import Notecard from './Notecard.js';
 
 class Show extends Component {
     render () {

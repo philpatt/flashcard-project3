@@ -3,6 +3,11 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
 import Dashboard from './Dashboard.js';
+import Show from './Show.js';
+import Notecard from './Notecard.js';
+import Details from './Details.js';
+import Deck from './Deck.js';
+import Cards from './Cards.js';
 import Flash from './layout/Flash.js';
 import Footer from './layout/Footer.js';
 import Home from './Home.js';
@@ -67,7 +72,6 @@ class App extends Component {
       flashType: ''
     });
   }
-
   render() {
     return (
       <div className="App">
@@ -83,10 +87,15 @@ class App extends Component {
                 () => (<Signup user={this.state.user} setFlash={this.setFlash} updateUser={this.getUser} />)} />
               <Route path="/profile" component={
                 () => (<Profile user={this.state.user} setFlash={this.setFlash} />)} />
+              <Route path="/Dashboard" component={Dashboard} />
+              <Route path="/Show" component={Show} />
+              <Route path="/Notecard" component={Notecard} />
+              <Route path="/Details" component={Details} />
+              <Route path="/Deck" component={Deck} />
+              <Route path="/Cards" component={Cards} />
             </div>
           </div>
         </Router>
-        <Dashboard />
         <Footer />
       </div>
     );
