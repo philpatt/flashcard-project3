@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './CardStyle.css';
+import '../CardStyle.css';
 import { Button } from 'react-bootstrap';
 
 class Cards extends Component {

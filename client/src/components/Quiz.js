@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Notecard from './Notecard.js';
 
-class Show extends Component {
+class Quiz extends Component {
     render () {
         return (
         
@@ -12,6 +12,6 @@ class Show extends Component {
     }
 }
 
-export default Show;
+export default Quiz;
 
 

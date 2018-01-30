@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
-import Dashboard from './Dashboard.js';
-import Show from './Show.js';
-import Notecard from './Notecard.js';
-import Details from './Details.js';
-import Deck from './Deck.js';
-import Cards from './Cards.js';
+import Dashboard from './components/Dashboard.js';
+import Quiz from './components/Quiz.js';
+import Notecard from './components/Notecard.js';
+import Details from './components/Details.js';
+import Deck from './components/Deck.js';
+import Cards from './components/Cards.js';
 import Flash from './layout/Flash.js';
 import Footer from './layout/Footer.js';
 import Home from './Home.js';
@@ -88,7 +88,7 @@ class App extends Component {
               <Route path="/profile" component={
                 () => (<Profile user={this.state.user} setFlash={this.setFlash} />)} />
               <Route path="/Dashboard" component={Dashboard} />
-              <Route path="/Show" component={Show} />
+              <Route path="/Quiz" component={Quiz} />
               <Route path="/Notecard" component={Notecard} />
               <Route path="/Details" component={Details} />
               <Route path="/Deck" component={Deck} />
