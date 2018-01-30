@@ -14,9 +14,9 @@ class Cards extends Component {
                         <p><strong>Answer</strong>: <i>{this.props.oneCard.answer}</i></p>
                         <Button bsStyle='danger' >Delete</Button>
                         <Button bsStyle='info'>View Card</Button>
+                        
                     </li>
                 </ul>
-
             </div>
 
         )

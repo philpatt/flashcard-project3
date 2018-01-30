@@ -4,6 +4,7 @@ import Sidenav from './Sidenav.js';
 import Notecard from './Notecard.js';
 
 class Dashboard extends Component {
+
     render () {
         return(
         <div>
@@ -13,7 +14,6 @@ class Dashboard extends Component {
         <Notecard />
         </div>
         )
-        
     }
 }
 export default Dashboard;
