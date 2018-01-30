@@ -8,7 +8,7 @@ class Deck extends Component {
         return (
         
             <div>Deck Deck Deck
-            <Cards />
+                <Cards />
             </div>)
         
     }
