@@ -9,11 +9,9 @@ class Dashboard extends Component {
         <div>
         <h2>This is da Dashboard yo!</h2>
         <Sidenav />
-
         <Deck />
         <Notecard />
         </div>
-
         )
 
     }
