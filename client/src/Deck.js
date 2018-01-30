@@ -67,7 +67,7 @@ class Deck extends Component {
             .map(card => {
                 console.log('DUUUUUDEEEEE THIS IS A CARD',card);
                 return(
-                    <Cards oneCard={card} />
+                    <Cards oneCard={ card } />
                 )
             })
         }
@@ -75,23 +75,14 @@ class Deck extends Component {
             return item.deck === 'Beer';
         })
         return (
-<<<<<<< HEAD
             <div className='deck-container'>
                 <h2>this is all the cards for { deckTitle[0].deck }</h2>
                 { deckFilter }
                 <Button bsStyle='info' onClick={ this.handleAddNewCard}>Add New card</Button>
-            </div>
-=======
-
-             <div className='deck-container'>
-                <h2>this is all the cards for { category[0].category }</h2>
-                { deck }
               <div className="single-deck">Deck 1</div>
               <div className="single-deck">Deck 2</div>
               <div className="single-deck">Deck 3</div>
-                <Cards />
-            </div>)
->>>>>>> 88631138420dfcf27d41b0d49a4d2c9fff853183
+            </div>
         )
     }
 }

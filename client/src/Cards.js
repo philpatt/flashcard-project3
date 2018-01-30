@@ -9,7 +9,7 @@ class Cards extends Component {
             <div>
                 <ul className='all-cards'>
                     <li className='card-box'>
-                        <p><strong>Category</strong> : <i>{this.props.oneCard.category}</i></p>
+                        <p><strong>Deck</strong> : <i>{this.props.oneCard.deck}</i></p>
                         <p><strong>Question</strong>: <i>{this.props.oneCard.question}</i></p>
                         <p><strong>Answer</strong>: <i>{this.props.oneCard.answer}</i></p>
                         <Button bsStyle='danger' >Delete</Button>
