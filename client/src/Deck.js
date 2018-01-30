@@ -45,6 +45,7 @@ class Deck extends Component {
         //  filter state to only show by one category
         // maybe the button the sidebar will do this function?
         //  iterate through state to break up object array to show individual cards
+        //  delete the .filert function and leave .map if you want all of the cards to display individually...
         let deck;
         if(this.state.cards){
             deck = this.state.cards
