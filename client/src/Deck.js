@@ -50,7 +50,7 @@ class Deck extends Component {
         if(this.state.cards){
             deck = this.state.cards
             .filter(function (item) {
-                return item.category == 'Beer';
+                return item.category === 'Beer';
             })
             .map(card => {
                 console.log('DUUUUUDEEEEE THIS IS A CARD',card);
@@ -59,13 +59,20 @@ class Deck extends Component {
                 )
             })
         }
-        console.log('########',this.state.cards);
+        let category = this.state.cards.filter(item =>{
+            return item.category === 'Beer';
+        })
+
+        console.log('########',category[0].category);
+
+
+
         return (
             <div className='deck-container'>
+                <h2>this is all the cards for { category[0].category }</h2>
                 { deck }
             </div>
         )
-        
     }
 }
 
