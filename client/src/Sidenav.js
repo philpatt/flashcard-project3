@@ -1,15 +1,34 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+
 
 class Sidenav extends Component {
     render (){
-        return(<div>
-            <ul className="sidenav">
-                <li>x</li>
-                <li>x</li>
-            </ul>
-            </div>)
+        return(
+          <nav>
+            <div className="navWide">
+                <div className="wideDiv">
+                  <a href="#" className="menu-of-decks">Deck 1</a>
+                  <a href="#" className="menu-of-decks">Deck 2</a>
+                  <a href="#" className="menu-of-decks">Deck 3</a>
+                </div>
+                <div class="row">
+
+                    <div class="input-group">
+                      <input type="text" class="form-control add-deck-name" placeholder="New deck name"/>
+                      <span class="input-group-btn">
+                        <button class="btn btn-secondary" type="button"> + </button>
+                      </span>
+                    </div>
+
+                </div>
+            </div>
+          </nav>
+        )
     }
 }
+
+
 
 
 export default Sidenav;

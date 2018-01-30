@@ -14,6 +14,10 @@ class Dashboard extends Component {
         <Notecard />
         </div>
         )
+<<<<<<< HEAD
+=======
+
+>>>>>>> 88631138420dfcf27d41b0d49a4d2c9fff853183
     }
 }
 export default Dashboard;
