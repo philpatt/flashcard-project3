@@ -6,11 +6,14 @@ import Cards from './Cards.js';
 class Deck extends Component {
     render () {
         return (
-        
-            <div>Deck Deck Deck
+
+            <div className="grid-of-decks">
+              <div className="single-deck">Deck 1</div>
+              <div className="single-deck">Deck 2</div>
+              <div className="single-deck">Deck 3</div>
                 <Cards />
             </div>)
-        
+
     }
 }
 

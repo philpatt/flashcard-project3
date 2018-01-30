@@ -22,12 +22,12 @@ class Nav extends Component {
 
     return(
         <div>
-          <nav className="nav">
+          <nav className="top-nav">
             <a href="/">Home</a>
             {links}
           </nav>
           <header className="App-header">
-            <h1 className="App-title">Welcome to MERN Stack Boilerplate!</h1>
+            <h1 className="App-title">Welcome to DECKS Stack!</h1>
           </header>
         </div>
       );

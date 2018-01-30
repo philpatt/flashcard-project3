@@ -13,9 +13,9 @@ class Dashboard extends Component {
         <Deck />
         <Notecard />
         </div>
-    
+
         )
-        
+
     }
 }
 export default Dashboard;

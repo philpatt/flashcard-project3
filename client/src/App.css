@@ -1,18 +1,18 @@
 /* CUSTOM STYLES */
-nav {
+.top-nav {
   width: 100%;
   background-color: #555;
   padding: 10px 0;
 }
 
-nav a {
+.top-nav a {
   margin: 10px;
   text-decoration: none;
   font-size: 18px;
   color: #4ff;
 }
 
-nav a:hover {
+.top-nav a:hover {
   color: #7f4dd2;
 }
 
@@ -84,14 +84,9 @@ nav a:hover {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 30px;
   padding: 20px;
   color: white;
 }
@@ -100,11 +95,51 @@ nav a:hover {
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+/* SIDENAV BAR displayed in logged in view */
+
+.navWide {
+  background: black;
+  padding: 30px;
+  position: fixed;
+  top: 134px;
+  height: 200px;
+  width: 80px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* .wideDiv{
+  text-decoration: none;
+} */
+.menu-of-decks{
+ display: table;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+.add-deck-name{
+  margin-top: 15px;
+  width: 85px;
+}
+
+.add-deck-button{
+  margin-top: 20px;
+}
+
+/* DECK STACKED DISPLAY ON DASHBOARD */
+
+.single-deck{
+  display: inline-block;
+  padding: 60px 120px;
+  border-style: solid;
+  border-color: black;
+  margin: 40px;
+}
+
+
+/* ALL CARDS DISPLAYED WITHIN A SINGLE DECK */
+.all-cards{
+  display: inline-block;
+  margin: 30px;
 }
