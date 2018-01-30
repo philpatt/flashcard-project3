@@ -68,10 +68,15 @@ class Deck extends Component {
 
 
         return (
-            <div className='deck-container'>
+
+             <div className='deck-container'>
                 <h2>this is all the cards for { category[0].category }</h2>
                 { deck }
-            </div>
+              <div className="single-deck">Deck 1</div>
+              <div className="single-deck">Deck 2</div>
+              <div className="single-deck">Deck 3</div>
+                <Cards />
+            </div>)
         )
     }
 }
