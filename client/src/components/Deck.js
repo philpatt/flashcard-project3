@@ -5,18 +5,37 @@ import axios from 'axios';
 import { Button } from 'react-bootstrap';
 
 class Deck extends Component {
+    // constructor(props) {
+    //     super(props);
 
+    //     this.state = {
+    //         cards: this.props.deck
+    //     }
+    // }
 
      render () {
-        //  filter state to only show by one category
-        // maybe the button the sidebar will do this function?
-        //  iterate through state to break up object array to show individual cards
-        //  delete the .filert function and leave .map if you want all of the cards to display individually...
-        
+        console.log('HEY PETE THIS IS PROPS',this.props.deck);
+
+        const oneCard = this.props.deck.cards.map( (card) => {
+            return(
+                <div className = 'Card-container'>
+                question: {card.question}
+                answer: {card.answer}
+                </div>
+            );
+        });
+            
+       
         return (
             <div className='deck-container'>
-                <h2>this is all the cards for { this.props.name }</h2>
                 <Button bsStyle='info' onClick={ this.handleAddNewCard}>Add New card</Button>
+                {/* return to all cards button */}
+                {oneCard}
+            
+
+                
+                
+
             </div>
         )
     }
