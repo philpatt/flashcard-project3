@@ -10,21 +10,21 @@ class Deck extends Component {
      render () {
 
         console.log('HEY PETE THIS IS PROPS',this.props)
-        const allCards = this.props.deck.cards.map(card => {
-            return(
-                <div className="single-deck">
-                    card: {card.question} 
-                </div>
-            );
-        });
+        // const allCards = this.props.deck.map(card => {
+            // return(
+            //     <div className="single-deck">
+            //         card: {card.question} 
+            //     </div>
+        //     );
+        // });
         return (
             <div className='deck-container'>
                 {/* <h2>this is all the cards for { this.props.cards[0].question }</h2>
-                <h2>this is all the cards for { this.props.cards[1].question }</h2>
+                <h2>this is all the cards for {this.props.cards[1].question}</h2>
 
                 <Button bsStyle='info' onClick={ this.handleAddNewCard}>Add New card</Button> */}
                 {/* <Button bsStyle='submit' onClick={this.handleViewDeckClick.bind(this)}>Go back to All Decks</Button> */}
-                {allCards}
+                {/* {allCards} */}
 
             </div>
         )

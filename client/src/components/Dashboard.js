@@ -11,9 +11,10 @@ class Dashboard extends Component {
     constructor(props) {
         super(props);
         // dummy data
-        
         this.state = {
             isOverview: true,
+            //write current object into new variable
+            currentDeck: {},
             decks: [
                 {
                     name: 'Math',
@@ -44,34 +45,47 @@ class Dashboard extends Component {
                 }
             ] //close array
         } //close state
+        // this bindings
+        this.handleViewDeckClick = this.handleViewDeckClick.bind(this)
     } //close constructor
 
 handleViewDeckClick (event) {
-    this.setState({isOverview: !this.state.isOverview});
-    console.log('###### should be alternating',this.state);
+    let dataKey = event.target.parentNode;
+    console.log('####', dataKey.getAttribute('data-key'));
+    let deckIndex = dataKey.getAttribute('data-key');
+    let currentDeck = this.state.decks[deckIndex]
+    this.setState(
+        {
+            isOverview: !this.state.isOverview,
+            currentDeck: currentDeck
+        }
+    );
 }
 
 handleDeckDeleteClick (event) {
     console.log ("delete click");
 }
 
+//func onclick => event, get parent to get key, look in decks and set state of current deck to 
+
     render () {
-        const allDecks = this.state.decks.map(deck => {
+        const allDecks = this.state.decks.map( (deck, index) => {
             return(
-                <div className="single-deck">
-                    Deck: {deck.name} 
+                <div className="single-deck" data-key={index}>
+                    Deck: {deck.name} `
                     <br />
-                    <Button bsStyle='info' onClick={this.handleViewDeckClick.bind(this)}>View Deck</Button>
+                    <Button bsStyle='info' onClick={event => this.handleViewDeckClick(event)}>View Deck</Button>
                     <Button bsStyle='danger'onClick={this.handleDeckDeleteClick}>Delete</Button>
-                    <Button bsStyle='submit' onClick={this.handleViewDeckClick.bind(this)}>All Decks</Button>
+                    <Button bsStyle='submit' onClick={event => this.handleViewDeckClick(event)}>All Decks</Button>
                 </div>
             );
         });
-        let singleDeck = this.state.decks.map((deck, i) => {
-            return (
-                <Deck key={i} deck={deck}/>
-            );
-        }); 
+        // let singleDeck = this.state.decks.map((deck, i) => {
+        //     return (
+        //         <Deck key={i} deck={deck}/>
+        //     );
+        // }); 
+        let singleDeck = <Deck deck={this.state.currentDeck}/>
         
         return(
             <div>
