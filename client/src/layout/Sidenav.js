@@ -12,12 +12,12 @@ class Sidenav extends Component {
                   <a href="#" className="menu-of-decks">Deck 2</a>
                   <a href="#" className="menu-of-decks">Deck 3</a>
                 </div>
-                <div class="row">
+                <div className="row">
 
-                    <div class="input-group">
-                      <input type="text" class="form-control add-deck-name" placeholder="New deck name"/>
-                      <span class="input-group-btn">
-                        <button class="btn btn-secondary" type="button"> + </button>
+                    <div className="input-group">
+                      <input type="text" className="form-control add-deck-name" placeholder="New deck name"/>
+                      <span className="input-group-btn">
+                        <button className="btn btn-secondary" type="button"> + </button>
                       </span>
                     </div>
 

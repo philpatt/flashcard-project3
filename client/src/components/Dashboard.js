@@ -3,6 +3,8 @@ import Deck from './Deck.js';
 import Sidenav from '../layout/Sidenav.js';
 import Notecard from './Notecard.js';
 import { Button } from 'react-bootstrap';
+import { runInThisContext } from 'vm';
+
 
 
 class Dashboard extends Component {
@@ -11,6 +13,7 @@ class Dashboard extends Component {
         // dummy data
         
         this.state = {
+            isOverview: true,
             decks: [
                 {
                     name: 'Math',
@@ -44,35 +47,41 @@ class Dashboard extends Component {
     } //close constructor
 
 handleViewDeckClick (event) {
-    console.log ("click");
+    this.setState({isOverview: !this.state.isOverview});
+    console.log('###### should be alternating',this.state);
 }
 
 handleDeckDeleteClick (event) {
     console.log ("delete click");
 }
 
-
     render () {
         const allDecks = this.state.decks.map(deck => {
             return(
                 <div className="single-deck">
                     Deck: {deck.name} 
-                <br />
-                <Button bsStyle='info' onClick={this.handleViewDeckClick}>View Deck</Button>
-                <Button bsStyle='danger'onClick={this.handleDeckDeleteClick}>Delete</Button>
+                    <br />
+                    <Button bsStyle='info' onClick={this.handleViewDeckClick.bind(this)}>View Deck</Button>
+                    <Button bsStyle='danger'onClick={this.handleDeckDeleteClick}>Delete</Button>
+                    <Button bsStyle='submit' onClick={this.handleViewDeckClick.bind(this)}>All Decks</Button>
                 </div>
             );
-        })
+        });
+        let singleDeck = this.state.decks.map((deck, i) => {
+            return (
+                <Deck key={i} deck={deck}/>
+            );
+        }); 
+        
         return(
             <div>
                 <h2>This is da Dashboard yo!</h2>
                 <Sidenav />
-
-                    {allDecks}
-                    
+                {this.state.isOverview ? allDecks : singleDeck}   
                 <Notecard />
             </div>
         )
     }
 }
+
 export default Dashboard;

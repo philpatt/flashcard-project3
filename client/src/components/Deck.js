@@ -8,15 +8,24 @@ class Deck extends Component {
 
 
      render () {
-        //  filter state to only show by one category
-        // maybe the button the sidebar will do this function?
-        //  iterate through state to break up object array to show individual cards
-        //  delete the .filert function and leave .map if you want all of the cards to display individually...
-        
+
+        console.log('HEY PETE THIS IS PROPS',this.props)
+        const allCards = this.props.deck.cards.map(card => {
+            return(
+                <div className="single-deck">
+                    card: {card.question} 
+                </div>
+            );
+        });
         return (
             <div className='deck-container'>
-                <h2>this is all the cards for { this.props.name }</h2>
-                <Button bsStyle='info' onClick={ this.handleAddNewCard}>Add New card</Button>
+                {/* <h2>this is all the cards for { this.props.cards[0].question }</h2>
+                <h2>this is all the cards for { this.props.cards[1].question }</h2>
+
+                <Button bsStyle='info' onClick={ this.handleAddNewCard}>Add New card</Button> */}
+                {/* <Button bsStyle='submit' onClick={this.handleViewDeckClick.bind(this)}>Go back to All Decks</Button> */}
+                {allCards}
+
             </div>
         )
     }
