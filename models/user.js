@@ -20,7 +20,18 @@ var userSchema = new mongoose.Schema({
     required: true,
     minlength: 6,
     maxlength: 99
-  }
+  },
+  decks: [{
+    name: {
+      type: String,
+      required: true
+    },
+      cards: [{
+        question: String,
+        answer: String
+    }]
+  
+  }]
 });
 
 // Override 'toJSON' to prevent the password from being returned with the user

@@ -27,7 +27,18 @@ class Signup extends Component {
     axios.post('/auth/signup', {
       name: this.state.name,
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      decks: [
+        {
+          name: 'Math',
+          cards: [{
+            question: 'Is math important?',
+            answer: 'Only if you want to know it.'
+          }, {
+            question: 'WHy is Pete good at Math?',
+            answer: 'cuz hes a smart guy.'
+          }]
+        }]
     }).then(result => {
       localStorage.setItem('mernToken', result.data.token);
       this.props.updateUser();
@@ -69,7 +80,7 @@ class Signup extends Component {
     return (
       <div>
         {form}
-        {this.props.user ? <Redirect to="/profile" /> : ''}
+        {/* {this.props.user ? <Redirect to="/" /> : ''} */}
       </div>
     );
   }
