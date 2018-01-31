@@ -5,26 +5,36 @@ import axios from 'axios';
 import { Button } from 'react-bootstrap';
 
 class Deck extends Component {
+    // constructor(props) {
+    //     super(props);
 
+    //     this.state = {
+    //         cards: this.props.deck
+    //     }
+    // }
 
      render () {
+        console.log('HEY PETE THIS IS PROPS',this.props.deck);
 
-        console.log('HEY PETE THIS IS PROPS',this.props)
-        // const allCards = this.props.deck.map(card => {
-            // return(
-            //     <div className="single-deck">
-            //         card: {card.question} 
-            //     </div>
-        //     );
-        // });
+        const oneCard = this.props.deck.cards.map( (card) => {
+            return(
+                <div className = 'Card-container'>
+                question: {card.question}
+                answer: {card.answer}
+                </div>
+            );
+        });
+            
+       
         return (
             <div className='deck-container'>
-                {/* <h2>this is all the cards for { this.props.cards[0].question }</h2>
-                <h2>this is all the cards for {this.props.cards[1].question}</h2>
+                <Button bsStyle='info' onClick={ this.handleAddNewCard}>Add New card</Button>
+                {/* return to all cards button */}
+                {oneCard}
+            
 
-                <Button bsStyle='info' onClick={ this.handleAddNewCard}>Add New card</Button> */}
-                {/* <Button bsStyle='submit' onClick={this.handleViewDeckClick.bind(this)}>Go back to All Decks</Button> */}
-                {/* {allCards} */}
+                
+                
 
             </div>
         )

@@ -15,6 +15,7 @@ class Cards extends Component {
                         <Button bsStyle='danger' >Delete</Button>
                         <Button bsStyle='info'>View Card</Button>
                         
+                        
                     </li>
                 </ul>
             </div>

@@ -22,8 +22,8 @@ class Dashboard extends Component {
                         question: 'Is math important?',
                         answer: 'Only if you want to know it.'
                     }, {
-                        question: 'Is math important?',
-                        answer: 'Only if you want to know it.'
+                        question: 'WHy is Pete good at Math?',
+                        answer: 'cuz hes a smart guy.'
                     }]
                 },
                 {
@@ -72,11 +72,10 @@ handleDeckDeleteClick (event) {
         const allDecks = this.state.decks.map( (deck, index) => {
             return(
                 <div className="single-deck" data-key={index}>
-                    Deck: {deck.name} `
+                    Deck: {deck.name} 
                     <br />
                     <Button bsStyle='info' onClick={event => this.handleViewDeckClick(event)}>View Deck</Button>
-                    <Button bsStyle='danger'onClick={this.handleDeckDeleteClick}>Delete</Button>
-                    <Button bsStyle='submit' onClick={event => this.handleViewDeckClick(event)}>All Decks</Button>
+                    <Button bsStyle='danger' onClick={this.handleDeckDeleteClick}>Delete</Button>
                 </div>
             );
         });
