@@ -54,7 +54,8 @@ router.post('/signup', function(req, res, next) {
       User.create({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+       //db schema works, need to create abillity to post decks/cards to db
       }, function(err, user) {
         if (err){
           console.log('DB error', err);
