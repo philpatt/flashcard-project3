@@ -3,7 +3,10 @@ var bcrypt = require('bcrypt');
 
 const deckSchema = new mongoose.Schema({
   name: String,
-  cards: [{}]
+  cards: [{
+    question: String,
+    answer: String
+  }]
 });
 
 var userSchema = new mongoose.Schema({
@@ -36,7 +39,8 @@ userSchema.set('toJSON', {
     var returnJson = {
       id: ret._id,
       email: ret.email,
-      name: ret.name
+      name: ret.name,
+      decks: ret.decks
     };
     return returnJson;
   }
