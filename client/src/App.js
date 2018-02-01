@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
 import Dashboard from './components/Dashboard.js';
+import CreateDeck from './components/CreateDeck.js';
 import Quiz from './components/Quiz.js';
 import Notecard from './components/Notecard.js';
 import Details from './components/Details.js';
@@ -89,11 +90,14 @@ class App extends Component {
                 () => (<Signup user={this.state.user} setFlash={this.setFlash} updateUser={this.getUser} />)} />
               <Route path="/profile" component={
                 () => (<Profile user={this.state.user} setFlash={this.setFlash} />)} />
-              <Route path="/Dashboard" component={Dashboard} />
+              <Route path="/Dashboard" component={
+                () => (<Dashboard user = {this.state.user} setFlash={this.setFlash} updateUser={this.getUser} />)} />
               <Route path="/Quiz" component={Quiz} />
               <Route path="/Notecard" component={Notecard} />
               <Route path="/Details" component={Details} />
               <Route path="/Deck" component={Deck} />
+              <Route path="/CreateDeck" component={
+                () => (<CreateDeck user={this.state.user} setFlash={this.setFlash} updateUser={this.getUser} />)} />
               <Route path="/Cards" component={Cards} />
             </div>
           </div>
@@ -103,4 +107,6 @@ class App extends Component {
   }
 }
 
+//user component that changes state to render different page 
+//parent handler to accompany it
 export default App;
