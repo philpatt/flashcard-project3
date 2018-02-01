@@ -92,6 +92,7 @@ handleDeckDeleteClick (event) {
                 <Sidenav />
                 {this.state.isOverview ? allDecks : singleDeck}   
                 <Notecard />
+                <Home />
             </div>
         )
     }
