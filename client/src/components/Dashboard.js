@@ -92,10 +92,11 @@ handleDeckDeleteClick (event) {
                 <Sidenav />
                 {this.state.isOverview ? allDecks : singleDeck}   
                 <Notecard />
-                <Home />
+                <CreateDeck />
             </div>
         )
     }
 }
+
 
 export default Dashboard;
