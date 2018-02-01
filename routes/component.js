@@ -14,26 +14,30 @@ var jwt = require('jsonwebtoken');
 //     console.log('displaying decks');
 // }
 
+// router.post('/newDeck', function (req, res, next) {
+
+//     console.log('My body is tell me..', req.body);
+//     User.findByIdAndUpdate(req.body.id, {deck: {$set: 'req.body.deckName'}}, function(err, user){
+//         if(err) console.log('DB ERROR',err);
+//         res.send(user);
+//     })
+// });
+
+
 router.post('/newDeck', function (req, res, next) {
-    console.log('My body is tell me..', req.body.email)
-    User.findOne({email: req.body.email}, function(err, user){
-        console.log('this is the user',user)
-        // User.({
-        //     decks: req.body.deckName
-        // }, function(err) {
-        //     if (err){
-        //         console.log('DB error', err);
-        //         res.status(500).send({error: true, message: "Database Error -" + err.message});
-        //     }
-        //     else {
-        //         console.log("You gots it!")
-        //     }
-        // })
-    })
-    
-    
+    console.log('My body is tell me..', req.body);
+    User.findOneAndUpdate({ _id: req.body.id },
+        {
+            $push: {
+                decks: {
+                    name: req.body.deckName
+                }
+            }
+        },
+        function (err, user) {
+            if (err) res.send(err);
+            console.log('what the fuck we lookin at', user);
+            res.json(user.decks);
+        });
 });
-
-
-
 module.exports = router;
