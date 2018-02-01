@@ -45,8 +45,7 @@ class App extends Component {
         localStorage.setItem('mernToken', response.data.token);
         this.setState({
           token: response.data.token,
-          user: response.data.user,
-          decks: response.data.decks
+          user: response.data.user
         });
         //   Pass User into child components and display main app
       }).catch(err => {
