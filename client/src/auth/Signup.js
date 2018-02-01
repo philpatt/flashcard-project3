@@ -70,7 +70,7 @@ class Signup extends Component {
     return (
       <div>
         {form}
-        {/* {this.props.user ? <Redirect to="/" /> : ''} */}
+        {this.props.user ? <Redirect to="/" /> : ''}
       </div>
     );
   }
