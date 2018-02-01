@@ -27,7 +27,7 @@ var userSchema = new mongoose.Schema({
     maxlength: 99
   },
   decks: [deckSchema]
-  }
+  
 });
 
 // Override 'toJSON' to prevent the password from being returned with the user
