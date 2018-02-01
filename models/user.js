@@ -1,6 +1,11 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
+// const deckSchema = new mongoose.Schema({
+//   name:
+//   cards: 
+// })
+
 var userSchema = new mongoose.Schema({
   name: {
     type: String,

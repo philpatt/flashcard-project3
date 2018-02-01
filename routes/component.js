@@ -17,12 +17,22 @@ var jwt = require('jsonwebtoken');
 // }
 
 router.post('/newDeck', function (req, res, next) {
-    console.log('petes req.BOD',req.body)
-    User.findOne({
-        decks:[{
-            name: req.body.deckName
-        }]
-    }, console.log('poop'))
+    console.log('My body is tell me..', req.body.email)
+    User.findOne({email: req.body.email}, function(err, user){
+        User.create({
+            decks: req.body.deckName
+        }, function(err) {
+            if (err){
+                console.log('DB error', err);
+                res.status(500).send({error: true, message: "Database Error -" + err.message});
+            }
+            else {
+                console.log("You gots it!")
+            }
+        })
+    })
+    
+    
 });
 
 

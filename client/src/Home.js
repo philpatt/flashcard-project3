@@ -6,7 +6,7 @@ class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      deckName: '',
+      deckName: ''
     }
   }
 
@@ -15,7 +15,8 @@ handleNewDeckSubmit = (e) => {
   e.preventDefault();
 
   axios.post('/component/newDeck', {
-    deckName: this.state.deckName
+    deckName: this.state.deckName,
+    email: this.props.user.email
   })
 }
 
@@ -24,13 +25,16 @@ handleDeckNameChange = (e) => {
 }
 
   render(){
+    console.log("this is the current" + this.props.user.email)
     let form = '';
     if(!this.props.user){
       return (<Redirect to="/Signup" />);
+      
     }
     else {
       form = (
         <form onSubmit={this.handleNewDeckSubmit}>
+          <input type="hidden" name="email" value={this.props.user.email} />
           <input name="name" placeholder="deckname" value={this.state.deckName} onChange={this.handleDeckNameChange}></input>
           <button className="btn btn-secondary" type="submit"> + </button>
         </form>);
