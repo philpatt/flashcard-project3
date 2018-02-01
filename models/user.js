@@ -1,6 +1,11 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
+const deckSchema = new mongoose.Schema({
+  name: String,
+  cards: [{}]
+});
+
 var userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -21,17 +26,8 @@ var userSchema = new mongoose.Schema({
     minlength: 6,
     maxlength: 99
   },
-  decks: [{
-    name: {
-      type: String,
-      required: true
-    },
-      cards: [{
-        question: String,
-        answer: String
-    }]
-  
-  }]
+  decks: [deckSchema]
+  }
 });
 
 // Override 'toJSON' to prevent the password from being returned with the user
@@ -65,5 +61,6 @@ userSchema.pre('save', function(next) {
 });
 
 var User = mongoose.model('User', userSchema);
+var Deck = mongoose.model('Deck', deckSchema);
 
 module.exports = User;
