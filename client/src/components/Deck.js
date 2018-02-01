@@ -13,12 +13,16 @@ class Deck extends Component {
     //     }
     // }
 
+    handleAddNewCard (event) {
+        console.log ("NEW CARD CLICKED");
+    }
+
      render () {
         console.log('HEY PETE THIS IS PROPS',this.props.deck);
 
-        const oneCard = this.props.deck.cards.map( (card) => {
+        const oneCard = this.props.deck.cards.map( (card, index) => {
             return(
-                <div className = 'Card-container'>
+                <div className = 'Card-container' data-key={index}>
                 question: {card.question}
                 answer: {card.answer}
                 </div>

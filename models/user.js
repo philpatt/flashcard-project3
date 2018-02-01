@@ -1,6 +1,11 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
+const deckSchema = new mongoose.Schema({
+  name: String,
+  cards: [{}]
+});
+
 var userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -20,6 +25,8 @@ var userSchema = new mongoose.Schema({
     required: true,
     minlength: 6,
     maxlength: 99
+  },
+  decks: [deckSchema]
   }
 });
 
@@ -54,5 +61,6 @@ userSchema.pre('save', function(next) {
 });
 
 var User = mongoose.model('User', userSchema);
+var Deck = mongoose.model('Deck', deckSchema);
 
 module.exports = User;

@@ -17,7 +17,7 @@ class Sidenav extends Component {
                     <div className="input-group">
                       <input type="text" className="form-control add-deck-name" placeholder="New deck name"/>
                       <span className="input-group-btn">
-                        <button className="btn btn-secondary" type="button"> + </button>
+                        
                       </span>
                     </div>
 
