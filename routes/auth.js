@@ -13,6 +13,7 @@ router.post('/login', function(req, res, next) {
   var passwordMatch = false;
   // look up user
   User.findOne({email: req.body.email}, function(err, user) {
+    console.log('this is user####', user);
     if(!user || !user.password){
       return res.status(403).send({
         error: true,
@@ -28,7 +29,9 @@ router.post('/login', function(req, res, next) {
       var token = jwt.sign(user.toObject(), process.env.JWT_SECRET, {
         expiresIn: 60 * 60 * 24 // expires in 24 hours
       });
-      res.send({user: user, token: token});
+      let decks = user.decks;
+      console.log('#######', user.decks);
+      res.send({user: user, decks: decks, token: token});
     }
     else {
       // Return an error
@@ -98,6 +101,7 @@ router.post('/me/from/token', function(req, res, next) {
         console.log('User not found error');
         return res.status(400).json({error: true, message: 'User Not Found!'});
       }
+
       //Note: you can renew token by creating new token(i.e.
       //refresh it) w/ new expiration time at this point, but I’m
       //passing the old token back.

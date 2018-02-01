@@ -45,7 +45,8 @@ class App extends Component {
         localStorage.setItem('mernToken', response.data.token);
         this.setState({
           token: response.data.token,
-          user: response.data.user
+          user: response.data.user,
+          decks: response.data.decks
         });
         //   Pass User into child components and display main app
       }).catch(err => {
@@ -73,6 +74,7 @@ class App extends Component {
     });
   }
   render() {
+    console.log('#####', this.state);
     return (
       <div className="App">
         <Router>

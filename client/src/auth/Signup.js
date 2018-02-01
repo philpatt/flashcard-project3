@@ -28,17 +28,7 @@ class Signup extends Component {
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
-      decks: [
-        {
-          name: 'Math',
-          cards: [{
-            question: 'Is math important?',
-            answer: 'Only if you want to know it.'
-          }, {
-            question: 'WHy is Pete good at Math?',
-            answer: 'cuz hes a smart guy.'
-          }]
-        }]
+      decks: []
     }).then(result => {
       localStorage.setItem('mernToken', result.data.token);
       this.props.updateUser();
