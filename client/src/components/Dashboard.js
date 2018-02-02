@@ -71,13 +71,11 @@ allDecks = () =>{
 }
 
 singleDeck = () => {
-       // let mapCards = this.state.allDecks[0].cards.map((card, index) => {
+    //    let mapCards = this.state.allDecks[0].cards.map((card, index) => {
     //     return (
     //         <div className="single-deck" data-key={index}>
-    //             Card: {card[0].question}
-    //             <br />
-    //             <Button bsStyle='info' onClick={event => this.handleViewDeckClick(event)}>View Deck</Button>
-    //             <Button bsStyle='danger' onClick={this.handleDeckDeleteClick}>Delete</Button>
+    //             Answer: {card[0].question}
+    //             Question:{card[0].answer}
     //         </div>
     //     );
     // });
@@ -96,14 +94,13 @@ singleDeck = () => {
                 </div>
             );
         });
-        mapCards.concat(thing);
+        mapCards.push(thing);
         // console.log(mapCards, "this is map cards inside of the for each ", thing)
     });
-    console.log("#######So Why Dont You Slide",mapCards);
     return (
         <div>
             <CreateCard user={this.props.user} deck={this.state.currentDeck}/>
-            {mapCards}
+            { mapCards }
         </div>
     )
 }
