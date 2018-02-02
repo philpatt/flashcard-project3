@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Deck from './Deck.js';
 import Sidenav from '../layout/Sidenav.js';
 import CreateDeck from './CreateDeck.js';
+import CreateCard from './CreateCard.js';
 import Notecard from './Notecard.js';
 import { Button } from 'react-bootstrap';
 import { runInThisContext } from 'vm';
@@ -17,7 +17,7 @@ class Dashboard extends Component {
             isOverview: true,
             //write current object into new variable
             currentDeck: {},
-            allDecks: this.props.user.decks
+            allDecks: this.props.user.decks,
         } //close state
         // this bindings
         this.handleViewDeckClick = this.handleViewDeckClick.bind(this)
@@ -48,6 +48,7 @@ addNewDeck = (newDeckName) => {
     this.setState({ allDecks: decks });
 }
 allDecks = () =>{
+    console.log(this.state.allDecks);    
     let mapDecks = this.state.allDecks.map((deck, index) => {
         return (
             <div className="single-deck" data-key={index}>
@@ -58,12 +59,54 @@ allDecks = () =>{
             </div>
         );
     });
-    return mapDecks;
+    return (
+    <div>
+    <CreateDeck user={this.props.user} addNewDeck={this.addNewDeck} />
+    { mapDecks }
+    </div> 
+    )
+}
+
+singleDeck = () => {
+       // let mapCards = this.state.allDecks[0].cards.map((card, index) => {
+    //     return (
+    //         <div className="single-deck" data-key={index}>
+    //             Card: {card[0].question}
+    //             <br />
+    //             <Button bsStyle='info' onClick={event => this.handleViewDeckClick(event)}>View Deck</Button>
+    //             <Button bsStyle='danger' onClick={this.handleDeckDeleteClick}>Delete</Button>
+    //         </div>
+    //     );
+    // });
+    let mapCards = [];
+    this.state.allDecks.forEach((item) => {
+        console.log(item, "this is the item in teh for each")
+       let thing = item.cards.map((card, index) => {
+           console.log("this is the individual card object", card)//this console log isn't firing because the cards arrays are empty
+            return (
+                <div className="single-deck" data-key={index}>
+                    Card: {card.question}
+                    <br />
+                    <Button bsStyle='info' onClick={event => this.handleViewDeckClick(event)}>View Deck</Button>
+                    <Button bsStyle='danger' onClick={this.handleDeckDeleteClick}>Delete</Button>
+                </div>
+            );
+        });
+        mapCards.concat(thing);
+        console.log(mapCards, "this is map cards inside of the for each ", thing)
+    });
+    console.log("#######So Why Dont You Slide",mapCards);
+    return (
+        <div>
+            <CreateCard user={this.props.user} addNewCardk={this.addNewCard} />
+            {mapCards}
+        </div>
+    )
 }
 
 //func onclick => event, get parent to get key, look in decks and set state of current deck to 
     render () {
-        let singleDeck = <Deck deck={this.state.currentDeck}/>
+        
 
         if (this.props === null) {
            return (<Redirect to='/' />);
@@ -72,8 +115,8 @@ allDecks = () =>{
                 <div>
                     <h2>This is da Dashboard yo!</h2>
                     <Sidenav />
-                    {this.state.isOverview ? this.allDecks() : singleDeck}
-                    <CreateDeck user={this.props.user} addNewDeck={this.addNewDeck} />   
+                    {this.state.isOverview ? this.allDecks() : this.singleDeck()}
+                      
                     <Notecard />
                 </div>
             )
