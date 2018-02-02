@@ -102,7 +102,7 @@ singleDeck = () => {
     console.log("#######So Why Dont You Slide",mapCards);
     return (
         <div>
-            <CreateCard deck={this.state.currentDeck}/>
+            <CreateCard user={this.props.user} deck={this.state.currentDeck}/>
             {mapCards}
         </div>
     )
