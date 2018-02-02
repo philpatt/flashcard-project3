@@ -49,22 +49,34 @@ router.post('/newCard', function (req, res, next) {
     console.log('question',question);
     console.log('userId',req.body.user.id);
     console.log('decks',req.body.user.decks);
-    console.log('deckId',req.body.deckId);
+    console.log('deckId',req.body.deckId, typeof req.body.deckId);
 
-    User.findOneAndUpdate({_id: req.body.user.id
+    User.findOne({
+        "_id": req.body.user.id,
+        "decks._id": req.body.deckId
+    }, function(err, found){
+        if (err) {
+            console.log('ERROR:', err);
+        }
+        console.log('FOUND:', found);
+    });
+
+    User.findOneAndUpdate({
+        "_id": req.body.user.id,
+        "decks._id": req.body.deckId
     },
-     {
-        $push: {
-            cards: {
+    {
+        "$push": {
+            "decks.$.cards": {
                 question: question,
                 answer: answer
             }
         }
-        },function(err,updatedUser){
+    }, { upsert: true },function(err,updatedUser){
         if(err){
-            console.log(err);
+            console.log('ERROR:', err);
         }
-        console.log(fupdatedUser);
+        console.log('UPDATED:', updatedUser);
     });
 });
     // Deck.findOne({"_id": req.body.deckId}, {$addToSet: {decks: {cards: card}}
