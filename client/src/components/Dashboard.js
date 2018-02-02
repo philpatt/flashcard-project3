@@ -3,6 +3,7 @@ import Sidenav from '../layout/Sidenav.js';
 import CreateDeck from './CreateDeck.js';
 import CreateCard from './CreateCard.js';
 import Notecard from './Notecard.js';
+import axios from 'axios';
 import { Button } from 'react-bootstrap';
 import { runInThisContext } from 'vm';
 import { Redirect } from 'react-router-dom';
@@ -18,9 +19,11 @@ class Dashboard extends Component {
             //write current object into new variable
             currentDeck: {},
             allDecks: this.props.user ? this.props.user.decks : [],
+            
         } //close state
         // this bindings
         this.handleViewDeckClick = this.handleViewDeckClick.bind(this)
+        this.handleDeckDeleteClick = this.handleDeckDeleteClick.bind(this)
     } //close constructor
 
 handleViewDeckClick (event) {
@@ -35,9 +38,24 @@ handleViewDeckClick (event) {
         }
     );
 }
+handleDeckDeleteClick  = (e) => {
+    e.preventDefault();
+    let dataKey = e.target.parentNode;
+    let deckIndex = dataKey.getAttribute('data-key');
+    let currentDeck = this.props.user.decks[deckIndex]
+    let decks = this.state.allDecks;
+    this.setState({ allDecks: decks });
+    
 
-handleDeckDeleteClick (event) {
-    console.log ("delete click");
+    console.log('DECK ID ######',currentDeck._id, 'userid is', this.props.user.id);
+    axios.delete('/component/removedeck', {
+        data: {
+            deckId: currentDeck._id,
+            userId: this.props.user.id
+        }
+    }).then(response => {
+        console.log('updated currentdeck',currentDeck)
+    });
 }
 
 addNewDeck = (newDeckName) => {
@@ -71,13 +89,11 @@ allDecks = () =>{
 }
 
 singleDeck = () => {
-       // let mapCards = this.state.allDecks[0].cards.map((card, index) => {
+    //    let mapCards = this.state.allDecks[0].cards.map((card, index) => {
     //     return (
     //         <div className="single-deck" data-key={index}>
-    //             Card: {card[0].question}
-    //             <br />
-    //             <Button bsStyle='info' onClick={event => this.handleViewDeckClick(event)}>View Deck</Button>
-    //             <Button bsStyle='danger' onClick={this.handleDeckDeleteClick}>Delete</Button>
+    //             Answer: {card[0].question}
+    //             Question:{card[0].answer}
     //         </div>
     //     );
     // });
@@ -90,20 +106,16 @@ singleDeck = () => {
             return (
                 <div className="single-deck" data-key={index}>
                     Card: {card.question}
-                    <br />
-                    <Button bsStyle='info' onClick={event => this.handleAddCardClick(event)}>Add Card</Button>
-                    <Button bsStyle='danger' onClick={this.handleDeckDeleteClick}>Delete</Button>
                 </div>
             );
         });
-        mapCards.concat(thing);
+        mapCards.push(thing);
         // console.log(mapCards, "this is map cards inside of the for each ", thing)
     });
-    console.log("#######So Why Dont You Slide",mapCards);
     return (
         <div>
             <CreateCard user={this.props.user} deck={this.state.currentDeck}/>
-            {mapCards}
+            { mapCards }
         </div>
     )
 }
@@ -117,7 +129,7 @@ singleDeck = () => {
                 <div>
                     <h2>This is da Dashboard yo!</h2>
                     <Sidenav />
-                    {this.state.isOverview ? this.allDecks() : this.singleDeck()}
+                    {this.state.isOverview ? this.allDecks() : this.singleDeck() }
                       
                     <Notecard />
                 </div>
