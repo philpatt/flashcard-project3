@@ -2,7 +2,7 @@ require('dotenv').config();
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var User = require('../models/user');
+var User = require('../models/user').User;
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
@@ -57,7 +57,7 @@ router.post('/signup', function(req, res, next) {
       User.create({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
+        password: req.body.password
        //db schema works, need to create abillity to post decks/cards to db
       }, function(err, user) {
         if (err){
