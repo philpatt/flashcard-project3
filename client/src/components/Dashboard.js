@@ -83,9 +83,10 @@ singleDeck = () => {
     // });
     let mapCards = [];
     this.state.allDecks.forEach((item) => {
-        console.log(item, "this is the item in teh for each")
+        // console.log(item, "this is the item in teh for each")
        let thing = item.cards.map((card, index) => {
            console.log("this is the individual card object", card)//this console log isn't firing because the cards arrays are empty
+           console.log('LOOK HERE', index)
             return (
                 <div className="single-deck" data-key={index}>
                     Card: {card.question}
@@ -96,12 +97,12 @@ singleDeck = () => {
             );
         });
         mapCards.concat(thing);
-        console.log(mapCards, "this is map cards inside of the for each ", thing)
+        // console.log(mapCards, "this is map cards inside of the for each ", thing)
     });
     console.log("#######So Why Dont You Slide",mapCards);
     return (
         <div>
-            <CreateCard user={this.props.user}/>
+            <CreateCard deck={this.state.currentDeck}/>
             {mapCards}
         </div>
     )

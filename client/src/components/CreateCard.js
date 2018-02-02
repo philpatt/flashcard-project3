@@ -14,17 +14,18 @@ class CreateCard extends Component {
 
     handleNewCardSubmit = (e) => {
         e.preventDefault();
-        console.log('###card user submit', this.props.decks)
-        
-        
+        console.log('###card user submit', this.props.deck._id)
+
     }
 
     handlecardQuestionChange = (e) => {
         this.setState({ cardQuestion: e.target.value })
+        console.log(this.state.cardQuestion)
     }
 
     handlecardAnswerChange = (e) => {
         this.setState({ cardAnswer: e.target.value })
+        console.log(this.state.cardAnswer)
     }
 
     render() {
