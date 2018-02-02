@@ -17,7 +17,7 @@ class Dashboard extends Component {
             isOverview: true,
             //write current object into new variable
             currentDeck: {},
-            allDecks: this.props.user.decks,
+            allDecks: this.props.user ? this.props.user.decks : [],
         } //close state
         // this bindings
         this.handleViewDeckClick = this.handleViewDeckClick.bind(this)
@@ -85,7 +85,7 @@ singleDeck = () => {
     this.state.allDecks.forEach((item) => {
         // console.log(item, "this is the item in teh for each")
        let thing = item.cards.map((card, index) => {
-           console.log("this is the individual card object", card)//this console log isn't firing because the cards arrays are empty
+           console.log("this is the individual card object", card)
            console.log('LOOK HERE', index)
             return (
                 <div className="single-deck" data-key={index}>
@@ -110,9 +110,7 @@ singleDeck = () => {
 
 //func onclick => event, get parent to get key, look in decks and set state of current deck to 
     render () {
-        
-
-        if (this.props === null) {
+        if (!this.props.user || !this.props.user.email) {
            return (<Redirect to='/' />);
         } else {
             return(
