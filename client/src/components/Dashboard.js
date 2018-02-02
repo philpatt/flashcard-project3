@@ -43,6 +43,9 @@ handleDeckDeleteClick  = (e) => {
     let dataKey = e.target.parentNode;
     let deckIndex = dataKey.getAttribute('data-key');
     let currentDeck = this.props.user.decks[deckIndex]
+    let decks = this.state.allDecks;
+    this.setState({ allDecks: decks });
+    
 
     console.log('DECK ID ######',currentDeck._id, 'userid is', this.props.user.id);
     axios.delete('/component/removedeck', {
