@@ -53,10 +53,10 @@ router.post('/newCard', function (req, res, next) {
         if(err){
             console.log('ERROR:', err);
         }
-        res.json('UPDATED:', updatedUser);
+        console.log('UPDATED:', updatedUser);
     });
 });
-
+    
 
 
 
