@@ -28,19 +28,6 @@ router.post('/newDeck', function (req, res, next) {
         });
 });
 
-// db.collection.update(
-//     {
-//         "_id": 1,
-//         "medications.id": 23,
-//         "medications.prescriptions.id": 77
-//     },
-//     {
-//         $set: { "medications.prescriptions.$.quantity": 30 }
-//     },
-//     false,
-//     true
-// )
-
 router.post('/newCard', function (req, res, next) {
     console.log('New CARD ADDDINGNGJSGJGS..', req.body);
     let answer = req.body.cardAnswer;
@@ -50,16 +37,6 @@ router.post('/newCard', function (req, res, next) {
     console.log('userId',req.body.user.id);
     console.log('decks',req.body.user.decks);
     console.log('deckId',req.body.deckId, typeof req.body.deckId);
-
-    User.findOne({
-        "_id": req.body.user.id,
-        "decks._id": req.body.deckId
-    }, function(err, found){
-        if (err) {
-            console.log('ERROR:', err);
-        }
-        console.log('FOUND:', found);
-    });
 
     User.findOneAndUpdate({
         "_id": req.body.user.id,
@@ -76,91 +53,9 @@ router.post('/newCard', function (req, res, next) {
         if(err){
             console.log('ERROR:', err);
         }
-        console.log('UPDATED:', updatedUser);
+        res.json('UPDATED:', updatedUser);
     });
 });
-    // Deck.findOne({"_id": req.body.deckId}, {$addToSet: {decks: {cards: card}}
-    // },function(err,deck){
-    //     if(err){
-    //         console.log(err);
-    //     }
-    //     console.log(deck);
-    //     });
-    // });
-    // User.findOne({ _id: req.body.user.id},{
-    //     decks: {$elemMatch: {"_id": req.body.deckId}}  
-    // },function(err,deck){
-    //     if(err){
-    //         console.log(err)
-    //     }
-    //     if(deck)console.log(deck.decks);
-    //     deck.decks.push({
-    //         cards: {
-    //             question: question,
-    //             answer: answer
-    //         }
-    //     });
-    //     console.log('we made it out of the callback');
-        // User.update({"_id": req.body.user.id},{
-        //     $push: {
-        //         cards: {
-        //             question: question,
-        //             answer: answer
-        //         }
-        //     }
-        // }, function(err, newCard){
-        //     if(err){
-        //         console.log(err);
-        //     }
-        //     console.log(newCard);
-        // });
-
-        // res.json({newCard: newCard});
-    // }).then(
-    // User.findOne({_id: req.body.user.id},{decks: {$elemMatch: {"_id": req.body.deckId}}},function(err,deck){
-    //     if(err){
-    //         console.log(err);
-    //     }
-    //     res.json({deck:deck});
-    //     }));
-    //     if(deck.length>1){
-    //         User.update({_id: user._id, decks: {$elemMatch: {"_id": user.decks.deckId}}},{
-    //             $push: {
-    //                 cards: {
-    //                     question: question,
-    //                     answer: answer
-    //                 }
-    //             }
-    //         }, function(err, newCard){
-    //             if(err){
-    //                 console.log(err);
-    //             }
-    //         });
-    //     }else{
-    //         User.update({_id: user.id, decks: {$elemMatch: {"_id": user.decks.deckId}}},{
-    //             $addToSet: {
-    //                 cards: {
-    //                     question: question,
-    //                     answer: answer
-    //                 }
-    //             }
-    //         }, function(err, newCard){
-    //             if(err){
-    //                 console.log(err);
-    //             }
-    //         });
-    //     }
-    //     if(err){
-    //         console.log(err);
-    //     }
-    // });
-    // User.findOne({_id: req.body.user.id}, {decks: {$elemMatch: {"_id": req.body.deckId}}},function(err,deck){
-    //     if(err){
-    //         console.log(err);
-    //     }
-    //     res.json({deck: deck});
-// });
-
 
 
 
