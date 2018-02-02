@@ -14,16 +14,9 @@ class CreateCard extends Component {
 
     handleNewCardSubmit = (e) => {
         e.preventDefault();
-        console.log('###card user submit', this.props)
-        axios.post('/component/cards', {
-            cardQuestion: this.state.cardQuestion,
-            cardQuestion: this.state.cardAnswer,
-            id: this.props.user.decks
-        }).then(() => {
-            console.log('card added successfully', this.state.cardQuestion, this.state.cardAnswer);
-            this.props.addNewCard(this.state.cardQuestion);
-            this.props.addNewCard(this.state.cardQuestion);
-        })
+        console.log('###card user submit', this.props.decks)
+        
+        
     }
 
     handlecardQuestionChange = (e) => {

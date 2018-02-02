@@ -47,6 +47,9 @@ addNewDeck = (newDeckName) => {
     console.log('decks is', decks);
     this.setState({ allDecks: decks });
 }
+
+
+
 allDecks = () =>{
     console.log(this.state.allDecks);    
     let mapDecks = this.state.allDecks.map((deck, index) => {
@@ -87,7 +90,7 @@ singleDeck = () => {
                 <div className="single-deck" data-key={index}>
                     Card: {card.question}
                     <br />
-                    <Button bsStyle='info' onClick={event => this.handleViewDeckClick(event)}>View Deck</Button>
+                    <Button bsStyle='info' onClick={event => this.handleAddCardClick(event)}>Add Card</Button>
                     <Button bsStyle='danger' onClick={this.handleDeckDeleteClick}>Delete</Button>
                 </div>
             );
@@ -98,7 +101,7 @@ singleDeck = () => {
     console.log("#######So Why Dont You Slide",mapCards);
     return (
         <div>
-            <CreateCard user={this.props.user} addNewCardk={this.addNewCard} />
+            <CreateCard user={this.props.user}/>
             {mapCards}
         </div>
     )
