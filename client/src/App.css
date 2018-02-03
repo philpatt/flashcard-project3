@@ -129,7 +129,7 @@ a{
 
 /* DECK STACKED DISPLAY ON DASHBOARD */
 
-.single-deck, .Card-container{
+.single-deck, .single-card{
   display: inline-block;
   padding: 60px 120px;
   border-style: solid;

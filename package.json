@@ -21,6 +21,8 @@
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
+    "semantic-ui-css": "^2.2.14",
+    "semantic-ui-react": "^0.77.2",
     "serve-favicon": "~2.4.5"
   }
 }

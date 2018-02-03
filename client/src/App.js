@@ -11,7 +11,7 @@ import Deck from './components/Deck.js';
 import Cards from './components/Cards.js';
 import Flash from './layout/Flash.js';
 import Footer from './layout/Footer.js';
-import Home from './Home.js';
+import WelcomePage from './WelcomePage.js';
 import Nav from './layout/Nav.js';
 import Login from './auth/Login.js';
 import Profile from './Profile.js';
