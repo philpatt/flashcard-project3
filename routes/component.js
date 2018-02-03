@@ -9,20 +9,19 @@ var Card = require('../models/user').Card;
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
-
-router.delete('/removedeck', function(req, res, next){
-    console.log('my bodyyyyyy',req.body)
-    User.findById(req.body.userId, function (err, user){
-        console.log('user to delete decks from', user);
-        user.decks.id(req.body.deckId).remove();
-        user.save(function (err) {
-            if(err)return res.send(err);
-            console.log('item removed!');
-            res.json(user);
+// router.delete('/removedeck', function(req, res, next){
+//     console.log('my bodyyyyyy',req.body)
+//     User.findById(req.body.userId, function (err, user){
+//         console.log('user to delete decks from', user);
+//         user.decks.id(req.body.deckId).remove();
+//         user.save(function (err) {
+//             if(err) console.log("this is error", err);
+//             console.log('item removed!');
+//             res.json(user);
             
-        })
-    })
-})
+//         })
+//     })
+// })
 
 router.post('/newDeck', function (req, res, next) {
     console.log('My body is tell me..', req.body);
@@ -67,9 +66,9 @@ router.post('/newCard', function (req, res, next) {
             console.log('ERROR:', err);
         }
         console.log('UPDATED:', updatedUser);
+        res.send('Success yo!');
     });
 });
-
     
 
 
