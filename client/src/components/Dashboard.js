@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Sidenav from '../layout/Sidenav.js';
 import CreateDeck from './CreateDeck.js';
 import CreateCard from './CreateCard.js';
-// import axios from 'axios';
+import axios from 'axios';
 import Notecard from './Notecard.js';
 import { Button } from 'react-bootstrap';
 import { runInThisContext } from 'vm';
@@ -20,6 +20,7 @@ class Dashboard extends Component {
         } //close state
         // this bindings
         this.handleViewDeckClick = this.handleViewDeckClick.bind(this);
+        this.handleDeckDeleteClick=this.handleDeckDeleteClick.bind(this);
     } //close constructor
 
     componentDidMount = () => {
@@ -39,25 +40,25 @@ handleViewALLDeckClick (event) {
     this.setState({ display: this.allDecks()});
 }
 
-// handleDeckDeleteClick  = (e) => {
-//     e.preventDefault();
-//     let dataKey = e.target.parentNode;
-//     let deckIndex = dataKey.getAttribute('data-key');
-//     let currentDeck = this.props.user.decks[deckIndex]
-//     let decks = this.state.allDecks;
-//     this.setState({ allDecks: decks });
+handleDeckDeleteClick  = (e) => {
+    e.preventDefault();
+    let dataKey = e.target.parentNode;
+    let deckIndex = dataKey.getAttribute('data-key');
+    let currentDeck = this.props.user.decks[deckIndex]
+    let decks = this.state.allDecks;
+    this.setState({ allDecks: decks });
     
 
-//     console.log('DECK ID ######',currentDeck._id, 'userid is', this.props.user.id);
-//     axios.delete('/component/removedeck', {
-//         data: {
-//             deckId: currentDeck._id,
-//             userId: this.props.user.id
-//         }
-//     }).then(response => {
-//         console.log('updated currentdeck',currentDeck)
-//     });
-// }
+    console.log('DECK ID ######',currentDeck._id, 'userid is', this.props.user.id);
+    axios.delete('/component/removedeck', {
+        data: {
+            deckId: currentDeck._id,
+            userId: this.props.user.id
+        }
+    }).then(response => {
+        console.log('updated currentdeck',currentDeck)
+    });
+}
 
 
 handleEditCardClick (event) {
@@ -98,7 +99,7 @@ allDecks = () =>{
                 Deck: {deck.name}
                 <br />
                 <Button bsStyle='info' onClick={event => this.handleViewDeckClick(event)}>View Deck</Button>
-                <Button bsStyle='danger' onClick={this.handleDeckDeleteClick}>Delete</Button>
+                <Button bsStyle='danger' onClick={e => this.handleDeckDeleteClick(e)}>Delete</Button>
             </div>
         );
     });
