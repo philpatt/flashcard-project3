@@ -8,7 +8,7 @@ class Nav extends Component {
     if(this.props.user){
       links = (
         <span>
-          <Link to="/profile">Profile</Link>
+
           <Logout updateUser={this.props.updateUser} />
         </span>);
     }
@@ -26,9 +26,7 @@ class Nav extends Component {
             <a href="/">Home</a>
             {links}
           </nav>
-          <header className="App-header">
-            <h1 className="App-title">Welcome to DECKS Stack!</h1>
-          </header>
+          
         </div>
       );
   }
