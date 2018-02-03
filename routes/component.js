@@ -31,6 +31,30 @@ router.delete('/removedeck', function(req, res, next){
         })
     })
 })
+router.delete('/askForLessCards', function (req, res, next) {
+    console.log('my card bodyyyyyy', req.body)
+    // User.findById(req.body.userId, function (err, user) {
+    //     console.log('user to delete decks from', user, " ", req.body.deckId);
+    //     let newDeck = [];
+    //     for (let i = 0; i < user.decks.length; i++) {
+    //         if (req.body.deckId != user.decks[i]._id) {
+    //             newDeck.push(user.decks[i]);
+    //         }
+    //     }
+
+    //     user.decks = newDeck;
+    //     User.update({ _id: user._id }, {
+    //         $set: {
+    //             "decks": newDeck
+    //         }
+    //     }, function (err, user) {
+    //         if (err) console.log("this is error", err);
+    //         console.log('item removed!', newDeck);
+    //         res.json(user);
+
+    //     })
+    // })
+})
 
 router.post('/newDeck', function (req, res, next) {
     console.log('My body is tell me..', req.body);
