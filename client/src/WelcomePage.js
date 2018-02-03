@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
-class Home extends Component {
+class Welcome extends Component {
 render() {
-  return(<div>Home</div>)
-  
+  return(
+    <div>
+     <h2> FLASHDASH </h2>
+    </div>
+    )
   }
 }
 
-export default Home;
+export default Welcome;

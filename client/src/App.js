@@ -11,7 +11,7 @@ import Deck from './components/Deck.js';
 import Cards from './components/Cards.js';
 import Flash from './layout/Flash.js';
 import Footer from './layout/Footer.js';
-import WelcomePage from './WelcomePage.js';
+import Welcome from './WelcomePage.js';
 import Nav from './layout/Nav.js';
 import Login from './auth/Login.js';
 import Profile from './Profile.js';
@@ -83,7 +83,7 @@ class App extends Component {
             <div className="space">
               <Flash flashType={this.state.flashType} flash={this.state.flash} setFlash={this.setFlash} cancelFlash={this.cancelFlash} />
               <Route exact path="/" component={
-                () => (<Home user={this.state.user} setFlash={this.setFlash} updateUser={this.getUser} />)} />
+                () => (<Welcome user={this.state.user} setFlash={this.setFlash} updateUser={this.getUser} />)} />
               <Route path="/login" component={
                 () => (<Login user={this.state.user} setFlash={this.setFlash} updateUser={this.getUser} />)} />
               <Route path="/signup" component={
