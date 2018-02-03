@@ -3,14 +3,22 @@ import ReactDOM from 'react-dom';
 
 
 class Sidenav extends Component {
+    itemClick = (e) => {
+      e.preventDefault();
+      console.log('itemClick target', e.target, e.target.name);
+      this.props.singleClick(e.target.name);
+    }
+
     render (){
+        let deckList = this.props.decks.map(d => {
+          return (<a href="/" name={d.name} onClick={this.itemClick}>{d.name}</a>);
+        });
+
         return(
           <nav>
             <div className="navWide">
                 <div className="wideDiv">
-                  <a href="#" className="menu-of-decks">Deck 1</a>
-                  <a href="#" className="menu-of-decks">Deck 2</a>
-                  <a href="#" className="menu-of-decks">Deck 3</a>
+                  {deckList}
                 </div>
                 <div className="row">
 

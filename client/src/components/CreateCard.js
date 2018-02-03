@@ -20,11 +20,12 @@ class CreateCard extends Component {
             cardQuestion: this.state.cardQuestion,
             deckId: this.props.deck._id,
             user: this.props.user
-        }).then ( (response) => {
-            // console.log('card ADDED successfully', this.state.cardAnswer, this.state.cardQuestion, this.props.deck._id,
-            // this.props.user._id
-            // );
-            console.log(response);
+        }).then(response => {
+            console.log('Successfully added a new card', response);
+            console.log('setting deck to', this.props.deck.name);
+            this.props.addNewCard(this.props.deck.name, this.state.cardQuestion, this.state.cardAnswer);
+        }).catch(err => {
+            console.log('what happened?', err);
         })
 
     }
