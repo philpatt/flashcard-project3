@@ -12,9 +12,7 @@ render() {
     <div className="section-a landing-page">
     {/* section-a flashdash title */}
       <div className="flashdash-header head">
-        <img className="header-img head" src="./img/curly-left.png" alt="curly"/>
-          <header className="head-title head">FLASHDASH</header>
-        <img className="header-img head" src="./img/curly-right.png" alt="curly" />
+        <header className="head-title head">{"{"} FLASHDASH {"}"}</header>
       </div>
         
         {/* section-b */}
@@ -38,7 +36,7 @@ render() {
               <Link to="/signup" >Sign Up to Sudy</Link>
             </div>
             <div className='login-signup-btn'>
-              <Link to="/login">Login to Keep Studying</Link>
+              <Link to="/login" cl>Login to Keep Studying</Link>
             </div>          
 
 
