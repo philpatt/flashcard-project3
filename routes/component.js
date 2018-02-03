@@ -9,19 +9,28 @@ var Card = require('../models/user').Card;
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
-// router.delete('/removedeck', function(req, res, next){
-//     console.log('my bodyyyyyy',req.body)
-//     User.findById(req.body.userId, function (err, user){
-//         console.log('user to delete decks from', user);
-//         user.decks.id(req.body.deckId).remove();
-//         user.save(function (err) {
-//             if(err) console.log("this is error", err);
-//             console.log('item removed!');
-//             res.json(user);
+router.delete('/removedeck', function(req, res, next){
+    console.log('my bodyyyyyy',req.body)
+    User.findById(req.body.userId, function (err, user){
+        console.log('user to delete decks from', user, " ",req.body.deckId);
+        let newDeck = [];
+        for(let i=0; i<user.decks.length; i++) {
+            if(req.body.deckId != user.decks[i]._id) {
+                newDeck.push(user.decks[i]);
+            }
+        }
+
+        user.decks = newDeck;
+        User.update({_id: user._id}, {$set: {
+            "decks": newDeck
+        }}, function (err, user) {
+            if(err) console.log("this is error", err);
+            console.log('item removed!', newDeck);
+            res.json(user);
             
-//         })
-//     })
-// })
+        })
+    })
+})
 
 router.post('/newDeck', function (req, res, next) {
     console.log('My body is tell me..', req.body);
