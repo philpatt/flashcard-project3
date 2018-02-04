@@ -33,7 +33,9 @@ class Dashboard extends Component {
     let dataKey = event.target.parentNode;
     let deckIndex = dataKey.getAttribute('data-key');
     let currentDeck = this.props.user.decks[deckIndex];
-    this.setState({ display: this.singleDeck(currentDeck.name)});
+    this.setState({ 
+        display: this.singleDeck(currentDeck.name)
+    });
     console.log("This is my current Deck", currentDeck);
     }
 
@@ -63,22 +65,26 @@ class Dashboard extends Component {
     }
     handleCardDeleteClick = (e) => {
         e.preventDefault();
-        console.log("CLICKED");
-        let dataKey = e.target.parentNode;
-        let deckIndex = dataKey.getAttribute('data-key');
-        let currentDeck = this.props.user.decks[deckIndex]
-        let decks = this.state.allDecks;
-        this.setState({ allDecks: decks });
-        console.log('this is currentDeck',currentDeck);
-        console.log('Card ID ######',currentDeck.cards._id);
-        axios.delete('/component/askForLessCards', {
-            data: {
-                cardId: currentDeck.cards._id,
-                userId: this.props.user.id
-            }
-        }).then(response => {
-            console.log('updated currentdeck', currentDeck)
-        });
+
+        // console.log("CLICKED");
+        // console.log('new all decks', currentDeck);
+        // let dataKey = e.target.parentNode;
+        // let cardIndex = dataKey.getAttribute('data-key');
+        // let currentCard = this.state.cards;
+        // console.log('this is currentDeck',currentCard);
+
+        // let decks = this.state.allDecks;
+        // this.setState({ allDecks: decks });
+        // console.log('this is currentDeck',currentDeck);
+        // console.log('Card ID ######',currentDeck.cards._id);
+        // axios.delete('/component/askForLessCards', {
+        //     data: {
+        //         cardId: currentDeck.cards._id,
+        //         userId: this.props.user.id
+        //     }
+        // }).then(response => {
+        //     console.log('updated currentdeck', currentDeck)
+        // });
     }
 handleEditCardClick (event) {
     console.log("edit card clicked");
@@ -130,25 +136,28 @@ allDecks = () =>{
 singleDeck = (deckName) => {
     let mapCards = [];
     let currentDeck = {};
+    // let currentCard = {};
     this.state.allDecks.forEach((item) => {
        if(deckName === item.name){
             currentDeck = item;
             let thing = item.cards.map((card, index) => {
                 console.log("this is the individual card object", card)
-                console.log('LOOK HERE', index)
+                console.log('index of card going into thing', index)
                 return (
                     <div className="single-card" data-key={index}>
                         Card: {card.question}
                         <br />
-                        <Button bsStyle='info' onClick={event => this.handleEditCardClick(event)}>Edit Card</Button>
-                        <Button bsStyle='danger' onClick={this.handleCardDeleteClick}>Delete</Button>
+                        <Button bsStyle='info' onClick={e => this.handleEditCardClick(e)}>Edit Card</Button>
+                        <Button bsStyle='danger' onClick={e => this.handleCardDeleteClick(e)}>Delete</Button>
                     </div>
                 );
             });
             mapCards.push(thing);
        }
     });
-    console.log("#######So Why Dont You Slide", mapCards);
+    console.log("new mapCards", mapCards);
+    console.log('current deck after thing pushed', currentDeck);            
+    
     return (
         <div>
             <Button bsStyle='info' onClick={event => this.handleViewALLDeckClick(event)}>ALL DECKS</Button>
@@ -169,7 +178,6 @@ singleDeck = (deckName) => {
                     <h2>This is da Dashboard yo!</h2>
                     <Sidenav decks={this.props.user.decks} singleClick={this.setDeck} />
                     { this.state.display }
-                      
                     <Notecard />
                 </div>
             )
