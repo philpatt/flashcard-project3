@@ -174,12 +174,11 @@ singleDeck = (deckName) => {
 
 //func onclick => event, get parent to get key, look in decks and set state of current deck to 
     render () {
-        if (!this.props.user || !this.props.user.email) {
+        if (!this.props.user || !this.props.user.email || this.props.user.id === undefined) {
            return (<Redirect to='/' />);
         } else {
             return(
                 <div>
-
                     <h2>Hello, {this.props.user.name}.</h2>
                     <Sidenav decks={this.props.user.decks} singleClick={this.setDeck} user={this.props.user} addNewDeck={this.addNewDeck} />
                     { this.state.display }
