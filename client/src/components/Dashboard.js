@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import Sidenav from '../layout/Sidenav.js';
-import CreateDeck from './CreateDeck.js';
+// import CreateDeck from './CreateDeck.js';
 import CreateCard from './CreateCard.js';
 import axios from 'axios';
-import Notecard from './Notecard.js';
 import { Button } from 'react-bootstrap';
 import { runInThisContext } from 'vm';
 import { Redirect } from 'react-router-dom';
@@ -58,6 +57,7 @@ class Dashboard extends Component {
             }
         }).then(response => {
             console.log('updated currentdeck',currentDeck)
+            // this.setState({ display: this.allDecks()})
         });
     }
     handleCardDeleteClick = (e) => {
