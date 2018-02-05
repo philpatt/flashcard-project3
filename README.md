@@ -42,6 +42,9 @@ Fix bugs that are
     * Figuring out delete routes with node and making it sure we are passing the appropriate data objects was a challenge
 * Styling React pages can be a chore when using a CSS framwork!
 * We left some work on the table as we did not quite get the Quiz mode working
+* Make Quiz mode be able to turn code into snippets
+* Flesh out a delete route for Cards 
+* Have a feature where users can share their cards with the community
 
 
 # How to get your own {FlashDash}?
