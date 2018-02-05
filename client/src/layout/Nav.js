@@ -15,21 +15,24 @@ class Nav extends Component {
     else {
       links = (
         <span>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
+          
         </span>);
     }
 
     return(
-        <div>
-          <nav className="top-nav">
-            <a href="/">Home</a>
-            {links}
-          </nav>
-          
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">FLASH-STASH</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li> {links} </li>
+            </ul>
         </div>
+      </nav>
       );
   }
 }
 
 export default Nav;
+

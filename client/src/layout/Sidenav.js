@@ -11,26 +11,17 @@ class Sidenav extends Component {
 
     render (){
         let deckList = this.props.decks.map(d => {
-          return (<a href="/" name={d.name} onClick={this.itemClick}>{d.name}</a>);
+          return (<li className="Snav-links"><a href="/" className="sidenav-links" name={d.name} onClick={this.itemClick}>{d.name}</a></li>);
         });
 
         return(
           <nav>
             <div className="navWide">
-                <div className="wideDiv">
-                  {deckList}
-                </div>
-                <div className="row">
-
+                  <div className="sidebar-deck-name"> {deckList} </div>
                     <div className="input-group">
-                      <input type="text" className="form-control add-deck-name" placeholder="New deck name"/>
-                      <span className="input-group-btn">
-                        
-                      </span>
+                      <input type="text" className="form-control add-deck-name" placeholder="Search"/>
                     </div>
-
-                </div>
-            </div>
+               </div>
           </nav>
         )
     }
