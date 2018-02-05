@@ -66,7 +66,7 @@ class Dashboard extends Component {
     handleCardDeleteClick = (e) => {
         e.preventDefault();
 
-        // console.log("CLICKED");
+        console.log("CLICKED");
         // console.log('new all decks', currentDeck);
         // let dataKey = e.target.parentNode;
         // let cardIndex = dataKey.getAttribute('data-key');
@@ -178,7 +178,6 @@ singleDeck = (deckName) => {
                     <h2>This is da Dashboard yo!</h2>
                     <Sidenav decks={this.props.user.decks} singleClick={this.setDeck} />
                     { this.state.display }
-                    <Notecard />
                 </div>
             )
         }   
