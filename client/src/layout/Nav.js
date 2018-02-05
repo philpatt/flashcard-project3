@@ -20,14 +20,11 @@ class Nav extends Component {
     }
 
     return(
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">FLASH-STASH</a>
-          </div>
-          <ul class="nav navbar-nav">
+      <nav className="top-nav">
+          <div>
+          {/* <ul class="nav navbar-nav"> */}
             <li> {links} </li>
-            </ul>
+            {/* </ul> */}
         </div>
       </nav>
       );
