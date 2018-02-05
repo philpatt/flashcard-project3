@@ -31,8 +31,8 @@ class CreateDeck extends Component {
         return (
             <div>
                 <form onSubmit={this.handleNewDeckSubmit}>
-                    <input name="name" placeholder="deckname" value={this.state.deckName} onChange={this.handleDeckNameChange}></input>
-                    <button className="btn btn-secondary" type="submit"> + </button>
+                    <input className="center-block" name="name" placeholder="deckname" value={this.state.deckName} onChange={this.handleDeckNameChange}></input>
+                    <button className="btn-secondary" type="submit"> + </button>
                 </form>
             </div>
         )

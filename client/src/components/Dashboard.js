@@ -112,11 +112,16 @@ allDecks = () =>{
     let mapDecks = this.state.allDecks.map((deck, index) => {
         return (
             <div className="single-deck" data-key={index}>
-                Deck: {deck.name}
+                {/* create a div or spot of # image to populate on the left, */}
+                {/* <div className="hashtag-deck"><h2>#</h2></div> */}
+                {/* put class area deck name and position left center with font styles */}
+                <h2 className="deck-name"> Deck: {deck.name} </h2>
+                {/* add color bar for far right edge: eventually tags for organizing */}
                 <br />
                 <Button bsStyle='info' onClick={event => this.handleViewDeckClick(event)}>View Deck</Button>
                 <Button bsStyle='danger' onClick={e => this.handleDeckDeleteClick(e)}>Delete</Button>
             </div>
+        
         );
     });
     return (

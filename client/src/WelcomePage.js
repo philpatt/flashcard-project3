@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './WelcomePageStyle.css';
+import './styles/WelcomePageStyle.css';
 import { Redirect } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';

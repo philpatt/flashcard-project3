@@ -1,48 +1,251 @@
-/* CUSTOM STYLES */
-.top-nav {
+
+.page-content-wrapper{
+  margin-left: 80px;
+}
+
+/* This is the style page for the overall app */
+html {
+box-sizing: border-box;
+font-family: 'Raleway', sans-serif;
+
+}
+*, *:before, *:after {
+box-sizing: inherit;
+text-align: center;
+}
+
+form {
+  display: block;
+  margin-top: 0em;
+}
+
+/* Desktop styles go here */
+
+h1 {
+font-size: 1.5rem;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 10px;
+  max-width: 1000px;
+}
+
+.row::before,
+.row::after {
+display: table;
+content: " ";
+clear: both;
+}
+
+.one,
+.one-third,
+.two-thirds,
+.one-fourth,
+.half {
+width: 100%;
+}
+/* Mobile first styles go here */
+
+@media screen and (min-width: 800px) {
+h1 {
+  font-size: 2rem;
+}
+.one {
   width: 100%;
-  background-color: #555;
-  padding: 10px 0;
 }
-
-.top-nav a {
-  margin: 10px;
-  text-decoration: none;
-  font-size: 18px;
-  color: #4ff;
+.half {
+  width: calc(100% / 2);
 }
-
-.top-nav a:hover {
-  color: #7f4dd2;
+.one-third {
+  width: calc(100% / 3);
 }
-
-.footer {
-  background-color: #555;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 20px;
+.one-fourth {
+  width: calc(100% / 4);
 }
-
-.footer-text {
-  color: #fff;
-  font-size: 10px;
+.two-thirds {
+  width: calc(100% / 3 * 2);
+}
+.column {
+  float: left;
+}
 }
 
 .space {
-  margin: 15px 0;
+margin: 15px 0;
 }
 
-.btn-primary {
+h2 {
+  text-align: center;
+}
+
+/* TOP NAV */
+/* CUSTOM STYLES */
+/* .navbar { */
+  /* display: flex;
+  flex-wrap: wrap; 
+  align-items: center;
+  justify-content: space-between; */
+  /* padding: $navbar-padding-y $navbar-padding-x; */
+  /* width: 100%;
+  background-color: #1f2c88e8;
+  padding: 10px 0; */
+  /* position: fixed; */
+  /* align-items: center; */
+  /* justify-content: space-between;
+  padding: .5rem 1rem; */
+  /* margin-top -15px; */
+/* } */
+/* 
+.navbar a {
+  margin: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #00080;
+}
+
+.nnavbar a:hover {
+  color: navy;
+}  */
+
+
+
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+/* SIDENAV BAR displayed in logged in view */
+
+.navWide {
+  background: #1e2b88f0;
+  padding: 30px;
+  position: fixed;
+  top: 134px;
+  height: auto;
+  width: 190px;
+  box-shadow: 0 0 11px #9E9E9E;
+  justify-content: start;
+  list-style: none;
+}
+
+.sidenav-deck-names{
+  text-align: left;
+  list-style-type: none;
+  color: lightgrey;
+  text-shadow: 0 0 12px #888;
+
+}
+
+.menu-of-decks{
+ display: table;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+
+
+.input-group-btn{
+  margin: 20px;
+  background: rgb(75, 75, 73);
+}
+
+/* DECK STACKED DISPLAY ON DASHBOARD */
+
+
+.single-deck {
+  display: inline-block;
+  padding: 60px 120px;
+  margin: 40px;
+  -webkit-box-shadow: 0 0 12px #888;
+  box-shadow: 0 0 11px #9E9E9E;
+  background: whitesmoke;
+  max-width: 450px;
+  /* border: solid; */
+}
+
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* ALL CARDS DISPLAYED WITHIN A SINGLE DECK */
+.all-cards{
+  display: inline-block;
+  margin: 30px;
+}
+
+.single-card{
+  display: inline-block;
+  padding: 60px 120px;
+  /* border-style: solid;
+  border-color: black; */
+  margin: 40px;
+  box-shadow:  0 0 12px #888;
+}
+
+.add-deck-name{
+  margin-top: 15px;
+  max-width: 250px;
+}
+
+.add-deck-button{
+  margin-top: 20px;
+}
+
+
+
+/* Bootstrap */
+.btn-info {
+  color: #00080;
+  background-color: #e1ebee;
+  border-color: #00080;
+}
+
+/* .btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+} */
+
+.btn-primary, .btn-info {
   color: #fff;
-  background-color: #11f;
-  border-radius: 2px;
+  background-color: #343f92;
+  /* border-radius: 2px; */
   border: none;
-  padding: 3px;
 }
 
-.btn-primary:hover {
-  background-color: #77f;
+.btn-primary:hover, .btn-info:hover {
+  background-color: rgb(198, 198, 214);
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #4b4b49
+}
+
+.btn-danger:hover{
+  background-color: red;
 }
 
 .error {
@@ -77,69 +280,4 @@
   color: white;
   border-radius: 2px;
   float: right;
-}
-
-/* DEFAULT STYLES FROM CREATE REACT APP MODULE */
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #222;
-  height: 30px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-/* SIDENAV BAR displayed in logged in view */
-
-.navWide {
-  background: black;
-  padding: 30px;
-  position: fixed;
-  top: 134px;
-  height: 200px;
-  width: 80px;
-}
-
-/* .wideDiv{
-  text-decoration: none;
-} */
-.menu-of-decks{
- display: table;
-}
-
-a{
-  color: white;
-  text-decoration: none;
-}
-
-.add-deck-name{
-  margin-top: 15px;
-  width: 85px;
-}
-
-.add-deck-button{
-  margin-top: 20px;
-}
-
-/* DECK STACKED DISPLAY ON DASHBOARD */
-
-.single-deck, .single-card{
-  display: inline-block;
-  padding: 60px 120px;
-  border-style: solid;
-  border-color: black;
-  margin: 40px;
-}
-
-
-/* ALL CARDS DISPLAYED WITHIN A SINGLE DECK */
-.all-cards{
-  display: inline-block;
-  margin: 30px;
 }
