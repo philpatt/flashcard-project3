@@ -22,7 +22,7 @@ Create trello board and label the sprints with their distintive colors
 Developed wireframes of the application
 ![](/client/public/img/LayoutStructure.png)
 Created Component structure based on wireframe
-![](/client/public/img/ComponentWireFrame.png)
+![](/client/public/img/ComponentWireframe.png)
 Made a basic database model Users that contains user data and Deck/card data
 
 ##Sprint2 - Backend 
