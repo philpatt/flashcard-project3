@@ -32,20 +32,18 @@ class CreateCard extends Component {
 
     handlecardQuestionChange = (e) => {
         this.setState({ cardQuestion: e.target.value })
-        console.log(this.state.cardQuestion)
     }
 
     handlecardAnswerChange = (e) => {
         this.setState({ cardAnswer: e.target.value })
-        console.log(this.state.cardAnswer)
     }
 
     render() {
         return (
             <div>
                 <form onSubmit={this.handleNewCardSubmit}>
-                    <input name="name" placeholder="question" value={this.state.cardQuestion} onChange={this.handlecardQuestionChange}></input>
-                    <input name="name" placeholder="answer" value={this.state.cardAnswer} onChange={this.handlecardAnswerChange}></input>
+                    <input name="name" placeholder="question" value={this.state.cardQuestion} onChange={this.handlecardQuestionChange} required></input>
+                    <input name="name" placeholder="answer" value={this.state.cardAnswer} onChange={this.handlecardAnswerChange} required></input>
                     <button className="btn btn-secondary" type="submit"> add card </button>
                 </form>
             </div>
