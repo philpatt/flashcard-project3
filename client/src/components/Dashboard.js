@@ -28,7 +28,6 @@ class Dashboard extends Component {
         //Set default display to all
         this.setState({ display: this.allDecks() });
     }
-
     handleViewDeckClick (event) {
     let dataKey = event.target.parentNode;
     let deckIndex = dataKey.getAttribute('data-key');
@@ -38,12 +37,10 @@ class Dashboard extends Component {
     });
     console.log("This is my current Deck", currentDeck);
     }
-
     handleViewALLDeckClick (event) {
         console.log('View all decks!! clicked');
         this.setState({ display: this.allDecks()});
     }
-
     handleDeckDeleteClick  = (e) => {
         e.preventDefault();
         let dataKey = e.target.parentNode;
@@ -89,7 +86,6 @@ class Dashboard extends Component {
 handleEditCardClick (event) {
     console.log("edit card clicked");
 }
-
 addNewDeck = (newDeckName) => {
     console.log('got to parent; setting state');
     let decks = this.state.allDecks;
@@ -150,8 +146,9 @@ singleDeck = (deckName) => {
                 console.log('index of card going into thing', index)
                 return (
                     <div className="single-card" data-key={index}>
-                        Question: {card.question}
-                        Answer: {card.answer}
+                        <div className="card-q">Question: {card.question}</div>
+                        <div className="card-a">Answer: {card.answer}</div>
+                        
                         
                         {/* <br /> */}
                         {/* <Button bsStyle='info' onClick={e => this.handleEditCardClick(e)}>Edit Card</Button>
@@ -186,7 +183,6 @@ singleDeck = (deckName) => {
                     <h2>Hello, {this.props.user.name}.</h2>
                     <Sidenav decks={this.props.user.decks} singleClick={this.setDeck} user={this.props.user} addNewDeck={this.addNewDeck} />
                     { this.state.display }
-                      
                     {/* <Notecard /> */}
                 
 

@@ -9,6 +9,8 @@
 html {
 box-sizing: border-box;
 font-family: 'Raleway', sans-serif;
+background-image: url('/img/blue-background.jpg');
+
 
 }
 *, *:before, *:after {
@@ -25,6 +27,15 @@ form {
 
 h1 {
 font-size: 1.5rem;
+/* color: #fff; */
+
+}
+/* .single-deck {
+color: #fff;
+} */
+
+.deck-name{
+color:black;
 }
 
 .container {
@@ -79,6 +90,8 @@ margin: 15px 0;
 
 h2 {
   text-align: center;
+  color: #fff;
+  
 }
 
 /* TOP NAV */
@@ -175,6 +188,7 @@ a{
   background: whitesmoke;
   max-width: 450px;
   /* border: solid; */
+  color:black;
 }
 
 .center-block {
@@ -192,6 +206,7 @@ a{
 .single-card{
   display: inline-block;
   padding: 60px 120px;
+  background: whitesmoke;  
   /* border-style: solid;
   border-color: black; */
   margin: 40px;
