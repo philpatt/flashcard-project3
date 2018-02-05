@@ -171,11 +171,11 @@ singleDeck = (deckName) => {
         } else {
             return(
                 <div>
-                    <h2>This is da Dashboard yo!</h2>
+                    <h2>Hello, {this.props.user.name}.</h2>
                     <Sidenav decks={this.props.user.decks} singleClick={this.setDeck} />
                     { this.state.display }
                       
-                    <Notecard />
+                    {/* <Notecard /> */}
                 </div>
             )
         }   

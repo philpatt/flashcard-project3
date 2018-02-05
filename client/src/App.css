@@ -1,6 +1,8 @@
 
 .page-content-wrapper{
   margin-left: 80px;
+  background-image: url('/img/blue-background.jpg');
+
 }
 
 /* This is the style page for the overall app */
@@ -129,6 +131,10 @@ li {
   list-style: none;
 }
 
+.navWide li {
+  text-align: left;
+}
+
 .sidenav-deck-names{
   text-align: left;
   list-style-type: none;
@@ -142,10 +148,14 @@ li {
 }
 
 a{
-  color: white;
+  color: rgb(177, 177, 186);
   text-decoration: none;
 }
 
+.logout-link{
+  color: lightgray;
+  text-decoration: none;
+}
 
 
 .input-group-btn{
@@ -201,9 +211,10 @@ a{
 
 /* Bootstrap */
 .btn-info {
-  color: #00080;
-  background-color: #e1ebee;
-  border-color: #00080;
+  color: #fff;
+  background-color: #343f92a3;
+  border: none;
+  border-radius: 2px;
 }
 
 /* .btn {
@@ -245,7 +256,7 @@ a{
 }
 
 .btn-danger:hover{
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.459);
 }
 
 .error {
