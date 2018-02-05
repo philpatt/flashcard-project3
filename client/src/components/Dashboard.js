@@ -132,7 +132,7 @@ allDecks = () =>{
     });
     return (
     <div>
-    <CreateDeck user={this.props.user} addNewDeck={this.addNewDeck} />
+    {/* <CreateDeck  user={this.props.user} addNewDeck={this.addNewDeck} /> */}
     { mapDecks }
     </div> 
     )
@@ -150,10 +150,12 @@ singleDeck = (deckName) => {
                 console.log('index of card going into thing', index)
                 return (
                     <div className="single-card" data-key={index}>
-                        Card: {card.question}
-                        <br />
-                        <Button bsStyle='info' onClick={e => this.handleEditCardClick(e)}>Edit Card</Button>
-                        <Button bsStyle='danger' onClick={e => this.handleCardDeleteClick(e)}>Delete</Button>
+                        Question: {card.question}
+                        Answer: {card.answer}
+                        
+                        {/* <br /> */}
+                        {/* <Button bsStyle='info' onClick={e => this.handleEditCardClick(e)}>Edit Card</Button>
+                        <Button bsStyle='danger' onClick={e => this.handleCardDeleteClick(e)}>Delete</Button> */}
                     </div>
                 );
             });
@@ -180,8 +182,7 @@ singleDeck = (deckName) => {
         } else {
             return(
                 <div>
-                    <h2>This is da Dashboard yo!</h2>
-                    <Sidenav decks={this.props.user.decks} singleClick={this.setDeck} />
+                    <Sidenav decks={this.props.user.decks} user={this.props.user} addNewDeck={this.addNewDeck} singleClick={this.setDeck} />
                     { this.state.display }
                 </div>
             )
