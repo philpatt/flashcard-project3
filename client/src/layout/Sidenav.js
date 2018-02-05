@@ -42,7 +42,7 @@ class Sidenav extends Component {
                   <div className="sidebar-deck-name"> {deckList} </div>
                     <div className="input-group">
                       <form onSubmit={this.handleNewDeckSubmit}>
-                        <input type="text" className="form-control add-deck-name" placeholder="Enter Deck Name Here" value={this.state.deckName} onChange={this.handleDeckNameChange} />
+                        <input type="text" className="form-control add-deck-name" placeholder="add Deck" value={this.state.deckName} onChange={this.handleDeckNameChange} />
                         <button className="btn btn-secondary" type="submit"> + </button>
                       </form>
                     </div>

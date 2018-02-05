@@ -184,12 +184,11 @@ singleDeck = (deckName) => {
                 <div>
 
                     <h2>Hello, {this.props.user.name}.</h2>
-                    <Sidenav decks={this.props.user.decks} singleClick={this.setDeck} />
+                    <Sidenav decks={this.props.user.decks} singleClick={this.setDeck} user={this.props.user} addNewDeck={this.addNewDeck} />
                     { this.state.display }
                       
                     {/* <Notecard /> */}
-                   <Sidenav decks={this.props.user.decks} user={this.props.user} addNewDeck={this.addNewDeck} singleClick={this.setDeck} />
-                    { this.state.display }
+                
 
                 </div>
             )
