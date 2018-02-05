@@ -32,12 +32,10 @@ class CreateCard extends Component {
 
     handlecardQuestionChange = (e) => {
         this.setState({ cardQuestion: e.target.value })
-        console.log(this.state.cardQuestion)
     }
 
     handlecardAnswerChange = (e) => {
         this.setState({ cardAnswer: e.target.value })
-        console.log(this.state.cardAnswer)
     }
 
     render() {
