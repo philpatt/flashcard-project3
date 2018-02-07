@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom'
+
 
 class Quiz extends Component {
     constructor(props){
@@ -9,7 +11,6 @@ class Quiz extends Component {
             i: 0
         }
     }
-
 
     handleCardDisplay = () => {
         this.setState({
@@ -32,12 +33,12 @@ class Quiz extends Component {
 
 
     render() {
-        console.log('this is props', this.props.currentDeck.cards[this.state.i])
+        console.log('this is props', this.props)
         if (this.props.currentDeck.cards[this.state.i] === undefined){
             return(
                 <div>
                     <h2>GO MAKE SOME CARDS!</h2>
-                    <Button> go back to all decks </Button>
+                    <Button> Go Make some cards </Button>
                 </div>
             )
         }
@@ -73,7 +74,6 @@ class Quiz extends Component {
                 <div>
                     <h2>{this.props.currentDeck.cards[this.state.i].answer}</h2>
                     <Button bsStyle='info' onClick={event => this.handleCardDisplay(event)}>Question</Button>
-                    <Button bsStyle='info' onClick={event => this.prevCardClick(event)}>Prev Card</Button>
                 </div>
             )
 
