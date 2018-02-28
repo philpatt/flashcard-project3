@@ -12,7 +12,7 @@ render() {
     <div className="section-a landing-page">
     {/* section-a flashdash title */}
       <div className="flashdash-header head">
-        <header className="head-title head">{"{"} FLASHDASH {"}"}</header>
+        <header className="head-title head">{"{"} FLASH STASH {"}"}</header>
       </div>
         
         {/* section-b */}
@@ -23,7 +23,7 @@ render() {
           {/* instruction */}
           <div className='instr-container'>
             <div className="instruction">
-              With FlashDash you have the ability to create flash cards on any study topic! </div>
+              With Flash Stash you have the ability to create flash cards on any study topic! </div>
             <div className="instruction">Create a deck of the topic you want to study.</div>
             <div className="instruction">Then, create flashcards in that deck!</div>
             <div className="instruction">Use Quiz Mode to study your newly created flashcards! </div>
