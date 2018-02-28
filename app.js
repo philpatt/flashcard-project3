@@ -15,7 +15,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json({limit: "50mb"}));
 app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
-app.use(express.static(path.resolve(__dirname, 'client', 'build')));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 app.use(function(req, res, next) {
   // before every route, attach the flash messages and current user to res.locals
@@ -28,7 +28,8 @@ app.use('/auth', require('./routes/auth'));
 app.use('/component', require('./routes/component'));
 
 app.get('*', function(req, res, next) {
-	res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+	res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
+
 
 module.exports = app;
