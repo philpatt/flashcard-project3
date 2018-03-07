@@ -1,4 +1,4 @@
-# {FlashDash}
+# {FlashStash}
 Never forget anything! Organize your much needed study materials into virtual flashcards and drop your paper counterparts behind.  
  
 
@@ -47,7 +47,7 @@ Fix bugs that are
 * Have a feature where users can share their cards with the community
 
 
-# How to get your own {FlashDash}?
+# How to get your own {FlashStash}?
 If you'd like to set this project up on your own local server: 
 * Fork and clone this repository
 * Run `npm install` to install dependencies in both client and main project folder
